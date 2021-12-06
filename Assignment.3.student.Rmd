@@ -1,0 +1,153 @@
+---
+title: "Week 3 Assignment"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+
+library(ottr)
+library(testthat)
+```
+
+---
+
+## Overview
+
+This assignment covers the content in week 3 lectures and tutorials.
+
+---
+
+## Background
+
+---
+
+The GTEx Project is resource that provides global RNA expression data across human tissues. In this assignment we will use gene expression (measured in transcripts per million (TPM)) for 7 randomly selected genes in 3 tissue types: whole blood, lung, and stomach. The data was gathered from: https://gtexportal.org  
+
+---
+
+### Question 1 
+
+The expression levels of the 7 genes in *whole blood* are as follows:
+
+| Gene | CD19 | CTCF  | FCER1A | KIRREL2 | LPA  | RBFOX1 | TUBG1 |
+| TPM  | 7.28 | 14.32 | 1.67   | 0.06    | 0.00 | 0.01   | 8.91  |
+
+*a.* Create a vector called "blood" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table. (1 mark)
+
+```{r}
+
+```
+
+*b.* Create a vector called "genes" to hold the names of the 7 genes. Make sure you enter the names in the same order as they are in the table. (1 mark)
+
+```{r}
+
+```
+
+*c.* Add names to the `blood` vector with the `genes` vector, so that each element has the name of the gene for which is has the TPM value.  (1 mark)
+
+```{r}
+
+```
+
+The expression levels of the 7 genes in the *lung* are as follows:
+
+| Gene | CD19 | CTCF  | FCER1A | KIRREL2 | LPA  | RBFOX1 | TUBG1 |
+| TPM  | 1.36 | 31.60 | 4.03   | 0.04    | 0.02 | 0.04   | 36.50 |
+
+*d.* Create a vector called "lung" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table. Add names to the `blood` vector with the `genes` vector, so that each element has the name of the gene for which is has the TPM value.  (2 marks)
+
+```{r}
+
+```
+
+The expression levels of the 7 genes in the *stomach* are as follows:
+
+| Gene | CD19 | CTCF  | FCER1A | KIRREL2 | LPA  | RBFOX1 | TUBG1 |
+| TPM  | 0.60 | 12.17 | 0.84   | 0.85    | 0.00 | 0.04   | 36.59 |
+
+*e.* Create a vector called "stomach" to hold the 7 TPM values in the table above. Add a name to each element during the creation of the vector instead of adding them afterwards. Make sure you enter the names and values in the same order as they are in the table. (2 marks)
+
+```{r}
+
+```
+
+## Question 2
+
+*a.* Using a sequence for indexing, return the first 3 elements in the `blood` vector. (1 mark)
+
+```{r}
+
+```
+
+*b.* Return the 2nd, 5th, and 7th element in the `lung` vector. Use positional indexing. (1 mark)
+
+```{r}
+
+```
+*c.* Using a negative index, return every element in the `stomach` vector except for the 4th. (1 mark)
+
+```{r}
+
+```
+
+*d.* Using named indexing, return the expression level of the genes CTCF and RBFOX1 in blood. (1 mark)
+
+```{r}
+
+```
+
+## Question 3
+
+*a.* Write a logical expression to return a logical vector indicating whether each expression level in the `lung` vector is greater than 1 TPM. (1 mark)
+
+```{r}
+
+```
+
+*b.* Using logical indexing, return only the elements in the `stomach` vector that have an expression level between 0.5 and 20. (2 marks)
+
+```{r}
+
+```
+
+*c.* Using logical indexing, return only the elements (gene name and TPM) in the `blood` vector for genes which contain an R in the name. (3 marks)
+
+```{r}
+
+```
+
+### Question 4
+
+*a.* Calculate the correlation in expression of the 7 genes between blood and lung tissues. (1 mark)
+
+```{r}
+
+```
+
+*b.* Calculate the correlation in expression of the 7 genes between stomach and lung tissues. (1 mark)
+
+```{r}
+
+```
+
+*c.* Which tissue (blood or stomach) has a higher correlation of gene expression across these 7 genes with lung tissue? Assign your answer (either "blood" or "stomach") to the variable. (2 mark)
+
+```{r}
+q.4.c <- 
+```
+
+*d.* Perform a t.test to determine if there is a significant difference in the expression levels of these 7 genes in stomach tissue vs. blood. (2 marks)
+
+```{r}
+
+```
+
+*e.* Generate a scatter plot of the expression levels of the 7 genes in stomach tissue vs. blood. (1 mark)
+
+```{r}
+
+```
+
+---

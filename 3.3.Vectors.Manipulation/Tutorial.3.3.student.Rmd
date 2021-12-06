@@ -1,0 +1,236 @@
+---
+title: "3.3 Vector Manipulation - Tutorial"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+
+library(ottr)
+library(testthat)
+```
+
+---
+
+At the end of this tutorial you should be able to:
+
+* Apply functions to vectors
+* Use vectors in math equations
+* Understand the different between vectors that contain paired and unpaired data
+* Create a scatter plot
+* Calculate the correlation between two vectors
+* Perform t-tests
+
+---
+
+## 3.3.1: Vector Functions
+
+---
+
+We will use the same data as the last two tutorials. As a reminder, a scientist has measuring the growth of wild-type (no mutations) E. coli in three conditions:
+1. in the presence of the antibiotic kanaymicin
+2. in the presence of the antibiotic ampicillin
+3. in the presence of no antibiotics
+
+The OD measurements for 6 replicates of E. coli after 24 hours in the presence of no antibiotics is saved in the vector `no_antibiotic_OD`.
+
+```{r}
+no_antibiotic_OD <- c(1.32, 1.02, 1.48, 1.11, 1.23, 1.45)
+```
+
+The OD measurements for 3 replicates of E. coli after 24 hours in the presence of kanamycin is saved in the vector `kanamycin_OD`.
+
+```{r}
+kanamycin_OD <- c(0.05, 0.01, 0.03)
+```
+
+The OD measurements for 3 replicates of E. coli after 24 hours in the presence of ampicilin is saved in the vector `ampicillin_OD`.
+
+```{r}
+ampicillin_OD <- c(0.02, 0.01, 0.04)
+```
+
+All of the E. coli samples grown in no antibiotic had an OD of 0.05 at the beginning of the experiment (24 hours before the OD measurement in `no_antibiotic_OD` was taken). Subtract 0.05 from each of the measurements in `no_antibiotic_OD` to get the total increase in OD over 24 hours. Assign the output vector to a variable named "no_antibiotic_OD_increase".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.1.a.R")
+```
+**Check your answer by running the above block** 
+
+The E. coli samples grown in the presence of kanamycin had the following ODs at the beginning of the experiment: 0.05, 0.03, 0.04. 
+
+Get the absolute value of the difference between these start ODs and the final ODs in the `kanamycin_OD` vector. Assign the output vector to a variable named "kanamycin_OD_abs_diff". Hint: You will need to use the `abs()` function.
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.1.b.R")
+```
+**Check your answer by running the above block** 
+
+Use the `mean()` function to calculate the mean OD of E. coli grown in the presence of no antibiotic. Assign the mean to a variable named "no_antibiotic_OD_mean".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.1.c.R")
+```
+**Check your answer by running the above block** 
+
+Use logical indexing to output the OD measurements in `no_antibiotic_OD` that are greater than or equal to the mean OD of E. coli grown in the presence of no antibiotic. Assign the output vector to a variable named "no_antibiotic_ODs_above_mean".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.1.d.R")
+```
+**Check your answer by running the above block** 
+
+Calculate the standard deviation of the OD measurements of E. coli grown in the presence of no antibiotic. Assign the standard deviation to a variable named "no_antibiotic_OD_sd".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.1.e.R")
+```
+**Check your answer by running the above block** 
+
+Use the `mean()` function to calculate the mean OD of E. coli grown in the presence of any antibiotic (both kanamycin & ampicillin). Assign the mean to a variable named "antibiotic_OD_mean". 
+Hint: Nest the `c()` function inside the `mean()` function.
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.1.f.R")
+```
+**Check your answer by running the above block** 
+
+Get a statistical summary of the OD measurements of E. coli grown in the presence of any antibiotic (both kanamycin & ampicillin). Assign the summary to a variable named "antibiotic_OD_summary".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.1.g.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+## 3.3.2 Paired & Unpaired Data
+
+---
+
+We will continue to use data introduced in the last tutorial. As a reminder, the scientist has 8 mutant strains of E. coli that grow in the presence of no antibiotic that they hypothesize are resistant to antibiotics. They want to check if any of them are resistant to kanamycin or ampicillin, in other words, if they grow in the presence of kanamycin or ampicillin.
+
+The scientist grows the 8 mutant strains in *kanamycin* and checks the OD after 24 hours. 
+
+|    | mut_A | mut_B | mut_C | mut_D | mut_E | mut_F | mut_G | mut_H | 
+| OD | 1.24  | 0.02  | 0.13  | 1.45  | 1.36  | 0.04  | 0.01  | 1.19  |
+
+The scientist grows the 8 mutant strains in *ampicillin* and checks the OD after 24 hours. 
+
+|    | mut_A | mut_B | mut_C | mut_D | mut_E | mut_F | mut_G | mut_H | 
+| OD | 0.06  | 0.03  | 1.57  | 0.04  | 1.48  | 0.02  | 1.77  | 0.04  |
+
+```{r}
+mut_kan_OD <- c("mut_A"=1.24, "mut_B"=0.02, "mut_C"=0.03, "mut_D"=1.45, "mut_E"=1.36, "mut_F"=0.04, "mut_G"=0.01, "mut_H"=1.19)
+
+mut_amp_OD <- c("mut_A"=0.06, "mut_B"=0.03, "mut_C"=1.57, "mut_D"=0.84, "mut_E"=1.48, "mut_F"=0.02, "mut_G"=1.77, "mut_H"=0.04)
+```
+
+Are these two vectors paired or unpaired? Assign either "paired" or "unpaired" to the variable "vector_relationship" to verify your answer.
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.2.a.R")
+```
+**Check your answer by running the above block** 
+
+Plot a scatter plot of the mutant ODs after growth on kanamycin (x-axis) against growth on ampicillin (y-axis).
+
+```{r}
+# Write and execute your code here
+
+```
+
+Does it look like these two vectors are correlated? Find the Pearson correlation of the mutant ODs after growth on kanamycin with the ODs after growth on ampicillin. Assign the correlation to a variable named "mut_OD_cor".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.2.b.R")
+```
+**Check your answer by running the above block** 
+
+Does this group of mutants tend to be more resistant to one of the two antibiotics (are the means of the two vectors significantly different)? Assign the output of the t-test to a variable named "mut_OD_ttest". Hint: don't forget about the `paired` argument. 
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.2.c.R")
+```
+**Check your answer by running the above block** 
+
+The OD for mutant D after growth in kanamycin is 1.45, indicating kanamycin resistance. However, the OD for mutant D after growth in ampicillin is 0.84, so the scientist is unsure if mutant D is or is not resistant to ampicillin. The scientist grows 5 replicates of mutant D in kanamycin for 24 hours, and another 5 replicates in ampicillin for 24 hours. The scientist saves their results in two vectors.
+
+```{r}
+mutant_D_kan_reps <- c(1.32, 1.51, 1.29, 1.26, 1.47)
+mutant_D_amp_reps <- c(1.24, 1.34, 1.38, 1.53, 1.27)
+```
+
+What is the mean of the mutant D replicates on kanamycin? Assign the mean to a variable named "mutant_D_kan_mean".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.2.d.R")
+```
+**Check your answer by running the above block** 
+
+What is the mean of the mutant D replicates on ampicillin? Assign the mean to a variable named "mutant_D_amp_mean".
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.2.e.R")
+```
+**Check your answer by running the above block** 
+Is this data paired or unpaired? Consider your answer and check if mutant D is more resistant to one of the two antibiotics (are the means of the two vectors significantly different). Assign the output of the t-test to a variable named "mutant_D_ttest". 
+
+```{r}
+# Write and execute your code here
+# YOUR CODE HERE
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W3.3.e.f.R")
+```
+**Check your answer by running the above block** 
+---
