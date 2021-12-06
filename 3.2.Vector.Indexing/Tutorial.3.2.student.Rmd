@@ -52,7 +52,7 @@ ampicillin_OD <- c(0.02, 0.01, 0.04)
 Use positional indexing to retrieve the fifth element in the `no_antibiotic_OD` vector. Assign the value to a variable named "no_antibiotic_OD_5".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -63,7 +63,7 @@ Use positional indexing to retrieve the fifth element in the `no_antibiotic_OD` 
 Use positional indexing with a sequence to retrieve the second to the fifth elements of the `no_antibiotic_OD` vector. Assign the new vector to a variable named "no_antibiotic_OD_2_to_5".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -74,7 +74,7 @@ Use positional indexing with a sequence to retrieve the second to the fifth elem
 Retrieve elements 2, 3, and 6 from the `no_antibiotic_OD` vector. Assign the new vector to a variable named "no_antibiotic_OD_2_3_6".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -85,7 +85,7 @@ Retrieve elements 2, 3, and 6 from the `no_antibiotic_OD` vector. Assign the new
 Output all three elements in the `ampicillin_OD` vector in reverse order. Assign the new vector to a variable named "amp_OD_rev".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -96,7 +96,7 @@ Output all three elements in the `ampicillin_OD` vector in reverse order. Assign
 Output all of the elements in `no_antibiotic_OD` vector EXCEPT for the second and fourth elements (use negative indices). Assign the new vector to a variable named "no_antibiotic_OD_1_3_5_6".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -131,7 +131,7 @@ mut_amp_OD <- c("mut_A"=0.06, "mut_B"=0.03, "mut_C"=1.57, "mut_D"=0.84, "mut_E"=
 Retrieve the OD measurement after 24 hours on ampicillin for mutant G using named indexing. Assign the value to a variable named "mut_G_amp_OD".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -142,7 +142,7 @@ Retrieve the OD measurement after 24 hours on ampicillin for mutant G using name
 Retrieve the OD measurements after 24 hours on ampicillin for mutant D, mutant F, and mutant H using named indexing. Assign the new vector to a variable named "mut_D_F_H_amp_OD".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -153,7 +153,7 @@ Retrieve the OD measurements after 24 hours on ampicillin for mutant D, mutant F
 Retrieve the OD measurements after 24 hours on ampicillin for mutants H and A (in that order) using named indexing. Assign the new vector to a variable named "mut_H_A_amp_OD".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -164,7 +164,7 @@ Retrieve the OD measurements after 24 hours on ampicillin for mutants H and A (i
 When copying the OD measurements the scientist made a mistake. The OD measurement for mutant C grown on kanamycin is actually 0.03 not 0.13. Replace the value at "mut_C" in `mut_kan_OD` with 0.03 (use named indexing).
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -175,7 +175,7 @@ When copying the OD measurements the scientist made a mistake. The OD measuremen
 Later on, the scientist found that the 2nd wild-type replicate grown on no antibiotic was contaminated. Remove the value at index 2 from the `no_antibiotic_OD` vector.
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -194,7 +194,7 @@ The scientist thinks that an OD of 1 should indicate that E. coli can grow in a 
 Write a logical expression vector to indicates for each element in `no_antibiotic_OD` whether it is greater than 1. Assign the new logical vector to a variable named "no_antibiotic_OD_above_1".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -205,7 +205,7 @@ Write a logical expression vector to indicates for each element in `no_antibioti
 Output a vector that indicates for each element in `mut_amp_OD` whether it is less than 0.02 or greater than 1. Assign the new logical vector to a variable named "mut_amp_OD_less_0.02_or_above_1".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -220,7 +220,7 @@ The scientist decides that 1 is a good threshold for growth.
 Can wild-type E. coli grown on kanamycin? Use logical indexing to retrieve the elements in `kanamycin_OD` that are greater than 1. Assign the result of the logical indexing to a variable named "wild_type_growth_on_kan".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -231,7 +231,7 @@ Can wild-type E. coli grown on kanamycin? Use logical indexing to retrieve the e
 Can wild-type E. coli grown on ampicillin? Use logical indexing to retrieve the elements in `ampicillin_OD` that are greater than 1. Assign the result of the logical indexing to a variable named "wild_type_growth_on_amp".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -242,7 +242,7 @@ Can wild-type E. coli grown on ampicillin? Use logical indexing to retrieve the 
 Which of the 8 mutants are kanamycin resistant? Use logical indexing to retrieve the elements in `mut_kan_OD` that have an OD > 1. Assign the result of the logical indexing to a variable named "kan_resistant_mutants".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -253,7 +253,7 @@ Which of the 8 mutants are kanamycin resistant? Use logical indexing to retrieve
 Which of the 8 mutants are ampicillin resistant? Use logical indexing to retrieve the elements in `mut_amp_OD` that have an OD > 1. Assign the result of the logical indexing to a variable named "amp_resistant_mutants".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -266,7 +266,7 @@ Looking at the OD values of wild-type E. coli grown in ampicillin and kanamycin,
 Do any of the 8 mutants have an OD measurement on ampicillin that shows an unclear result? Use logical indexing to retrieve the elements in `mut_amp_OD` that have an OD > 0.1 and < 1. Assign the result of the logical indexing to a variable named "amp_inconclusive_mutants".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}

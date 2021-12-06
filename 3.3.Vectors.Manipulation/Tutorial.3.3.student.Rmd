@@ -53,7 +53,7 @@ ampicillin_OD <- c(0.02, 0.01, 0.04)
 All of the E. coli samples grown in no antibiotic had an OD of 0.05 at the beginning of the experiment (24 hours before the OD measurement in `no_antibiotic_OD` was taken). Subtract 0.05 from each of the measurements in `no_antibiotic_OD` to get the total increase in OD over 24 hours. Assign the output vector to a variable named "no_antibiotic_OD_increase".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -66,7 +66,7 @@ The E. coli samples grown in the presence of kanamycin had the following ODs at 
 Get the absolute value of the difference between these start ODs and the final ODs in the `kanamycin_OD` vector. Assign the output vector to a variable named "kanamycin_OD_abs_diff". Hint: You will need to use the `abs()` function.
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -77,7 +77,7 @@ Get the absolute value of the difference between these start ODs and the final O
 Use the `mean()` function to calculate the mean OD of E. coli grown in the presence of no antibiotic. Assign the mean to a variable named "no_antibiotic_OD_mean".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -88,7 +88,7 @@ Use the `mean()` function to calculate the mean OD of E. coli grown in the prese
 Use logical indexing to output the OD measurements in `no_antibiotic_OD` that are greater than or equal to the mean OD of E. coli grown in the presence of no antibiotic. Assign the output vector to a variable named "no_antibiotic_ODs_above_mean".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -99,7 +99,7 @@ Use logical indexing to output the OD measurements in `no_antibiotic_OD` that ar
 Calculate the standard deviation of the OD measurements of E. coli grown in the presence of no antibiotic. Assign the standard deviation to a variable named "no_antibiotic_OD_sd".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -111,7 +111,7 @@ Use the `mean()` function to calculate the mean OD of E. coli grown in the prese
 Hint: Nest the `c()` function inside the `mean()` function.
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -122,7 +122,7 @@ Hint: Nest the `c()` function inside the `mean()` function.
 Get a statistical summary of the OD measurements of E. coli grown in the presence of any antibiotic (both kanamycin & ampicillin). Assign the summary to a variable named "antibiotic_OD_summary".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -157,7 +157,7 @@ mut_amp_OD <- c("mut_A"=0.06, "mut_B"=0.03, "mut_C"=1.57, "mut_D"=0.84, "mut_E"=
 Are these two vectors paired or unpaired? Assign either "paired" or "unpaired" to the variable "vector_relationship" to verify your answer.
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -175,7 +175,7 @@ Plot a scatter plot of the mutant ODs after growth on kanamycin (x-axis) against
 Does it look like these two vectors are correlated? Find the Pearson correlation of the mutant ODs after growth on kanamycin with the ODs after growth on ampicillin. Assign the correlation to a variable named "mut_OD_cor".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -186,7 +186,7 @@ Does it look like these two vectors are correlated? Find the Pearson correlation
 Does this group of mutants tend to be more resistant to one of the two antibiotics (are the means of the two vectors significantly different)? Assign the output of the t-test to a variable named "mut_OD_ttest". Hint: don't forget about the `paired` argument. 
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -204,7 +204,7 @@ mutant_D_amp_reps <- c(1.24, 1.34, 1.38, 1.53, 1.27)
 What is the mean of the mutant D replicates on kanamycin? Assign the mean to a variable named "mutant_D_kan_mean".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -215,7 +215,7 @@ What is the mean of the mutant D replicates on kanamycin? Assign the mean to a v
 What is the mean of the mutant D replicates on ampicillin? Assign the mean to a variable named "mutant_D_amp_mean".
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
@@ -226,7 +226,7 @@ Is this data paired or unpaired? Consider your answer and check if mutant D is m
 
 ```{r}
 # Write and execute your code here
-# YOUR CODE HERE
+
 ```
 
 ```{r}
