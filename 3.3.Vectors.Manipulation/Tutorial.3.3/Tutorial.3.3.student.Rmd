@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 library(ottr)
 library(testthat)
 ```
+**Run the above block to load required packages**
 
 ---
 
@@ -16,7 +17,7 @@ At the end of this tutorial you should be able to:
 
 * Apply functions to vectors
 * Use vectors in math equations
-* Understand the different between vectors that contain paired and unpaired data
+* Understand the difference between vectors that contain paired and unpaired data
 * Create a scatter plot
 * Calculate the correlation between two vectors
 * Perform t-tests
@@ -27,7 +28,7 @@ At the end of this tutorial you should be able to:
 
 ---
 
-We will use the same data as the last two tutorials. As a reminder, a scientist has measuring the growth of wild-type (no mutations) E. coli in three conditions:
+We will use the same data as the last two tutorials. As a reminder, a scientist has measured the growth of wild-type (no mutations) E. coli in three conditions:
 1. in the presence of the antibiotic kanaymicin
 2. in the presence of the antibiotic ampicillin
 3. in the presence of no antibiotics
@@ -96,7 +97,7 @@ Use logical indexing to output the OD measurements in `no_antibiotic_OD` that ar
 ```
 **Check your answer by running the above block** 
 
-Calculate the standard deviation of the OD measurements of E. coli grown in the presence of no antibiotic. Assign the standard deviation to a variable named "no_antibiotic_OD_sd".
+Use the `sd()` function to calculate the standard deviation of the OD measurements of E. coli grown in the presence of no antibiotic. Assign the standard deviation to a variable named "no_antibiotic_OD_sd".
 ```{r}
 # Write and execute your code here
 
@@ -119,7 +120,7 @@ Hint: Nest the `c()` function inside the `mean()` function.
 ```
 **Check your answer by running the above block** 
 
-Get a statistical summary of the OD measurements of E. coli grown in the presence of any antibiotic (both kanamycin & ampicillin). Assign the summary to a variable named "antibiotic_OD_summary".
+Get a statistical summary of the OD measurements of E. coli grown in the presence of any antibiotic (both kanamycin & ampicillin). Assign the summary to a variable named "antibiotic_OD_summary". Hint: use the `summary()` function.
 ```{r}
 # Write and execute your code here
 
@@ -136,7 +137,7 @@ Get a statistical summary of the OD measurements of E. coli grown in the presenc
 
 ---
 
-We will continue to use data introduced in the last tutorial. As a reminder, the scientist has 8 mutant strains of E. coli that grow in the presence of no antibiotic that they hypothesize are resistant to antibiotics. They want to check if any of them are resistant to kanamycin or ampicillin, in other words, if they grow in the presence of kanamycin or ampicillin.
+We will continue to use data introduced in the last tutorial. As a reminder, the scientist has 8 mutant strains of E. coli that grow in the presence of no antibiotic that they hypothesize are resistant to antibiotics. They want to check if any of them are resistant to kanamycin or ampicillin (in other words, if they grow in the presence of kanamycin or ampicillin).
 
 The scientist grows the 8 mutant strains in *kanamycin* and checks the OD after 24 hours. 
 
@@ -222,7 +223,7 @@ What is the mean of the mutant D replicates on ampicillin? Assign the mean to a 
 . = ottr::check("tests/Tutorial.W3.3.2.e.R")
 ```
 **Check your answer by running the above block** 
-Is this data paired or unpaired? Consider your answer and check if mutant D is more resistant to one of the two antibiotics (are the means of the two vectors significantly different). Assign the output of the t-test to a variable named "mutant_D_ttest". 
+Is this data paired or unpaired? Consider your answer and check if mutant D is more resistant to one of the two antibiotics (are the means of the two vectors significantly different) using the `t.test()` function. Assign the output of the t-test to a variable named "mutant_D_ttest". 
 
 ```{r}
 # Write and execute your code here

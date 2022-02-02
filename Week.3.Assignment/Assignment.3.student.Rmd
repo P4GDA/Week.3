@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 library(ottr)
 library(testthat)
 ```
+**Run the above block to load required packages**
 
 ---
 
@@ -30,7 +31,7 @@ This assignment covers the content in week 3 lectures and tutorials.
 
 ---
 
-The GTEx Project is resource that provides global RNA expression data across human tissues. In this assignment we will use gene expression (measured in transcripts per million (TPM)) for 7 randomly selected genes in 3 tissue types: whole blood, lung, and stomach. The data were gathered from: https://gtexportal.org  
+The GTEx Project is a resource that provides global RNA expression data across human tissues. In this assignment we will use gene expression (measured in transcripts per million (TPM)) for 7 randomly selected genes in 3 tissue types: whole blood, lung, and stomach. The data were gathered from: https://gtexportal.org  
 
 ---
 
@@ -47,9 +48,8 @@ The expression levels of the 7 genes in *whole blood* are as follows:
 | Gene | CD19 | CTCF  | FCER1A | KIRREL2 | LPA  | RBFOX1 | TUBG1 |
 | TPM  | 7.28 | 14.32 | 1.67   | 0.06    | 0.00 | 0.01   | 8.91  |
 
-Create a vector called "blood" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table.
+Create an unnamed vector called "blood" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table.
 ```{r Assignment.W3.1.a}
-# Write and execute your code here
 
 ```
 
@@ -60,9 +60,8 @@ Create a vector called "blood" to hold the 7 TPM values in the table above. Make
 
 #### b.
 (1 mark)
-Create a vector called "genes" to hold the names of the 7 genes. Make sure you enter the names in the same order as they are in the table.
+Create an unnamed vector called "genes" to hold the names of the 7 genes. Make sure you enter the names in the same order as they are in the table.
 ```{r Assignment.W3.1.b}
-# Write and execute your code here
 
 ```
 
@@ -73,9 +72,8 @@ Create a vector called "genes" to hold the names of the 7 genes. Make sure you e
 
 #### c.
 (1 mark)
-Add names to the `blood` vector with the `genes` vector, so that each element has the name of the gene for which is has the TPM value.
+Add names to the `blood` vector with the `genes` vector, so that each element has the gene name and the corresponding TPM value.
 ```{r Assignment.W3.1.c}
-# Write and execute your code here
 
 ```
 
@@ -93,7 +91,6 @@ The expression levels of the 7 genes in the *lung* are as follows:
 
 Create a vector called "lung" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table. Add names to the `lung` vector with the `genes` vector, so that each element has the name of the gene for which is has the TPM value.
 ```{r Assignment.W3.1.d}
-# Write and execute your code here
 
 ```
 
@@ -111,7 +108,6 @@ The expression levels of the 7 genes in the *stomach* are as follows:
 
 Create a vector called "stomach" to hold the 7 TPM values in the table above. Add a name to each element during the creation of the vector instead of adding them afterwards. Make sure you enter the names and values in the same order as they are in the table.
 ```{r Assignment.W3.1.e}
-# Write and execute your code here
 
 ```
 
@@ -128,7 +124,6 @@ Create a vector called "stomach" to hold the 7 TPM values in the table above. Ad
 (1 mark)
 Using a sequence for indexing, assign the first 3 elements in the `blood` vector to a variable named "blood.1.to.3".
 ```{r Assignment.W3.2.a}
-# Write and execute your code here
 
 ```
 
@@ -141,7 +136,6 @@ Using a sequence for indexing, assign the first 3 elements in the `blood` vector
 (1 mark)
 Using positional indexing, assign the 2nd, 5th, and 7th element in the `lung` vector to a variable named "lung.2.5.7".
 ```{r Assignment.W3.2.b}
-# Write and execute your code here
 
 ```
 
@@ -154,7 +148,6 @@ Using positional indexing, assign the 2nd, 5th, and 7th element in the `lung` ve
 (1 mark)
 Using a negative index, assign every element in the `stomach` vector except for the 4th to a variable named "stomach.not.4".
 ```{r Assignment.W3.2.c}
-# Write and execute your code here
 
 ```
 
@@ -167,7 +160,6 @@ Using a negative index, assign every element in the `stomach` vector except for 
 (1 mark)
 Using named indexing, assign the expression level of the genes CTCF and RBFOX1 in blood to a variable named "blood.CTCF.RBFOX1".
 ```{r Assignment.W3.2.d}
-# Write and execute your code here
 
 ```
 
@@ -184,7 +176,6 @@ Using named indexing, assign the expression level of the genes CTCF and RBFOX1 i
 (1 mark)
 Write a logical expression to return a logical vector indicating whether each expression level in the `lung` vector is greater than 1 TPM. Assign the output to a variable named "lung.greater.than.1".
 ```{r Assignment.W3.3.a}
-# Write and execute your code here
 
 ```
 
@@ -197,7 +188,6 @@ Write a logical expression to return a logical vector indicating whether each ex
 (2 marks)
 Using logical indexing, return only the elements in the `stomach` vector that have an expression level between 0.5 and 20 (inclusive). Assign the output to a variable named "stomach.0.5.to.20".
 ```{r Assignment.W3.3.b}
-# Write and execute your code here
 
 ```
 
@@ -211,7 +201,6 @@ Using logical indexing, return only the elements in the `stomach` vector that ha
 Using logical indexing, return only the elements in the `blood` vector for genes which contain an R in the name. Assign the output to a variable named "blood.R.genes". 
 Note that your output should be a vector of elements with expression levels and gene names.
 ```{r Assignment.W3.3.c}
-# Write and execute your code here
 
 ```
 
@@ -228,7 +217,6 @@ Note that your output should be a vector of elements with expression levels and 
 (1 mark)
 Calculate the correlation in expression of the 7 genes between blood and lung tissues. Assign the correlation to a variable named "blood_lung_cor".
 ```{r Assignment.W3.4.a}
-# Write and execute your code here
 
 ```
 
@@ -241,7 +229,6 @@ Calculate the correlation in expression of the 7 genes between blood and lung ti
 (1 mark)
 Calculate the correlation in expression of the 7 genes between stomach and lung tissues. Assign the correlation to a variable named "stomach_lung_cor".
 ```{r Assignment.W3.4.b}
-# Write and execute your code here
 
 ```
 
@@ -254,7 +241,6 @@ Calculate the correlation in expression of the 7 genes between stomach and lung 
 (2 marks)
 Which tissue (blood or stomach) correlates better with lung tissue based on the expression level of these 7 genes? Assign your answer (either "blood" or "stomach") to a variable named "better.cor.tissue". 
 ```{r Assignment.W3.4.c}
-# Write and execute your code here
 
 ```
 
@@ -267,7 +253,6 @@ Which tissue (blood or stomach) correlates better with lung tissue based on the 
 (2 marks)
 Perform a t.test to determine if there is a significant difference in the expression levels of these 7 genes in stomach tissue vs. blood. Assign the output to a variable named "stomach.blood.difference".
 ```{r Assignment.W3.4.d}
-# Write and execute your code here
 
 ```
 

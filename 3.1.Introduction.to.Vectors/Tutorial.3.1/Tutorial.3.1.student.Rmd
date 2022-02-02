@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 library(ottr)
 library(testthat)
 ```
+**Run the above block to load required packages**
 
 ---
 
@@ -31,7 +32,7 @@ A scientist is measuring the growth of wild-type (no mutations) E. coli in three
 2. in the presence of the antibiotic ampicillin
 3. in the presence of no antibiotics
 
-They measure the optical density (OD) after 24 hours to assess the growth. (Higher OD - more E. coli.)
+They measure the optical density (OD) after 24 hours to assess the growth. (Higher OD = more E. coli.)
 
 Three replicates of wild-type E. coli after 24 hours in the presence of no antibiotics had the following ODs:
 
@@ -48,7 +49,7 @@ Create a vector of the OD measurements after 24 in the presence of no antibiotic
 ```
 **Check your answer by running the above block** 
 
-Add names to the `no_antibiotic_OD` vector according to the following table:
+Using the names() function, add names to the `no_antibiotic_OD` vector according to the following table:
 
 |    | rep_1 | rep_2 | rep_3 |
 | OD | 1.32  | 1.02  | 1.48  |
@@ -117,7 +118,7 @@ A week later the scientist did two more replicates (5th and 6th) in the presence
 
 | 1.23 | 1.45 |
 
-Create a new vector (with named elements) containing these two measurements. Call it "no_antibiotic_OD_new_reps".
+Create a new vector (with named elements) containing just these two measurements. Call it "no_antibiotic_OD_new_reps".
 ```{r}
 # Write and execute your code here
 
@@ -128,7 +129,7 @@ Create a new vector (with named elements) containing these two measurements. Cal
 ```
 **Check your answer by running the above block** 
 
-Use the combine function to add the new vector: `no_antibiotic_OD_new_reps` to the end of `no_antibiotic_OD`.
+Use the combine function to add the new vector `no_antibiotic_OD_new_reps` to the end of `no_antibiotic_OD`.
 ```{r}
 # Write and execute your code here
 

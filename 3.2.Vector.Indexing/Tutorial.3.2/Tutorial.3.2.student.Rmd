@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 library(ottr)
 library(testthat)
 ```
+**Run the above block to load required packages**
 
 ---
 
@@ -26,7 +27,7 @@ At the end of this tutorial you should be able to:
 
 ---
 
-We will use the same data as the last tutorial. As a reminder, a scientist has measuring the growth of wild-type (no mutations) E. coli in three conditions:
+We will use the same data as the last tutorial. As a reminder, a scientist has measured the growth of wild-type (no mutations) E. coli in three conditions:
 1. in the presence of the antibiotic kanamycin
 2. in the presence of the antibiotic ampicillin
 3. in the presence of no antibiotics
@@ -161,7 +162,7 @@ Retrieve the OD measurements after 24 hours on ampicillin for mutants H and A (i
 ```
 **Check your answer by running the above block** 
 
-When copying the OD measurements the scientist made a mistake. The OD measurement for mutant C grown on kanamycin is actually 0.03 not 0.13. Replace the value at "mut_C" in `mut_kan_OD` with 0.03 (use named indexing).
+When copying the OD measurements the scientist made a mistake. The OD measurement for mutant C grown on kanamycin is actually 0.03, not 0.13. Replace the value at "mut_C" in `mut_kan_OD` with 0.03 (use named indexing).
 ```{r}
 # Write and execute your code here
 
