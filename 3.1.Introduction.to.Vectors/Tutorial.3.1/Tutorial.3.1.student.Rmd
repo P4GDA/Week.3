@@ -39,6 +39,7 @@ Three replicates of wild-type E. coli after 24 hours in the presence of no antib
 | 1.32 | 1.02 | 1.48 |
 
 Create a vector of the OD measurements after 24 in the presence of no antibiotics called "no_antibiotic_OD". 
+
 ```{r}
 # Write and execute your code here
 
@@ -53,6 +54,7 @@ Using the names() function, add names to the `no_antibiotic_OD` vector according
 
 |    | rep_1 | rep_2 | rep_3 |
 | OD | 1.32  | 1.02  | 1.48  |
+
 ```{r}
 # Write and execute your code here
 
@@ -76,6 +78,7 @@ Three replicates of wild-type E. coli after 24 hours in the presence of *ampicil
 Create a SINGLE vector of the OD measurements after 24 in the presence of kanamycin and ampicillin called "antibiotic_OD". During creation of the vector add a name to each element to match the names in the tables. 
 
 Be sure to add the kanamycin replications before the ampicillin replicates, and to add the values in the same order as they are in the tables.
+
 ```{r}
 # Write and execute your code here
 
@@ -86,7 +89,8 @@ Be sure to add the kanamycin replications before the ampicillin replicates, and 
 ```
 **Check your answer by running the above block** 
 
-The names in this vector are not unique. Assign new names to the vector so that the the names of the replicates grown in the presence of kanamycin start with "kan_" (ex. "kan_rep_1") and the names of the replicates grown in the presence of ampicillin start with "amp_" (ex. "amp_rep_1")
+The names in this vector are not unique. Assign new names to the vector so that the the names of the replicates grown in the presence of kanamycin start with "kan_" (ex. "kan_rep_1") and the names of the replicates grown in the presence of ampicillin start with "amp_" (ex. "amp_rep_1").
+
 ```{r}
 # Write and execute your code here
 
@@ -104,6 +108,7 @@ The names in this vector are not unique. Assign new names to the vector so that 
 ---
 
 The scientist performed a fourth replicate for the E. coli grown in the presence of no antibiotics. The OD measurement after 24 hours was 1.71. Add this value with an appropriate name to the vector `no_antibiotic_OD`. 
+
 ```{r}
 # Write and execute your code here
 
@@ -119,6 +124,7 @@ A week later the scientist did two more replicates (5th and 6th) in the presence
 | 1.23 | 1.45 |
 
 Create a new vector (with named elements) containing just these two measurements. Call it "no_antibiotic_OD_new_reps".
+
 ```{r}
 # Write and execute your code here
 
@@ -130,6 +136,7 @@ Create a new vector (with named elements) containing just these two measurements
 **Check your answer by running the above block** 
 
 Use the combine function to add the new vector `no_antibiotic_OD_new_reps` to the end of `no_antibiotic_OD`.
+
 ```{r}
 # Write and execute your code here
 
@@ -141,6 +148,7 @@ Use the combine function to add the new vector `no_antibiotic_OD_new_reps` to th
 **Check your answer by running the above block** 
 
 Create a sequence that counts down from 7 to 0. Assign it to a variable named "seven_to_zero".
+
 ```{r}
 # Write and execute your code here
 
@@ -152,6 +160,7 @@ Create a sequence that counts down from 7 to 0. Assign it to a variable named "s
 **Check your answer by running the above block** 
 
 Create a sequence vector named "negative_three_to_zero", that contains the integers from -3 increasing to 0.
+
 ```{r}
 # Write and execute your code here
 
@@ -163,6 +172,7 @@ Create a sequence vector named "negative_three_to_zero", that contains the integ
 **Check your answer by running the above block** 
 
 Create a sequence vector named "one_to_three", that contains the integers from 1 increasing to 3.
+
 ```{r}
 # Write and execute your code here
 
@@ -174,6 +184,7 @@ Create a sequence vector named "one_to_three", that contains the integers from 1
 **Check your answer by running the above block** 
 
 Combine the previous two vectors to create a new vector that contains the integers from -3 increasing to 3. Name the vector "negative_three_to_three".
+
 ```{r}
 # Write and execute your code here
 
@@ -185,6 +196,7 @@ Combine the previous two vectors to create a new vector that contains the intege
 **Check your answer by running the above block** 
 
 Use the vector `negative_three_to_three` to create a new vector called `negative_four_to_four`, by using the `c()` function to add a -4 to the beginning and a 4 to the end.
+
 ```{r}
 # Write and execute your code here
 

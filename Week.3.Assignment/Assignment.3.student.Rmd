@@ -49,6 +49,7 @@ The expression levels of the 7 genes in *whole blood* are as follows:
 | TPM  | 7.28 | 14.32 | 1.67   | 0.06    | 0.00 | 0.01   | 8.91  |
 
 Create an unnamed vector called "blood" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table.
+
 ```{r Assignment.W3.1.a}
 
 ```
@@ -61,6 +62,7 @@ Create an unnamed vector called "blood" to hold the 7 TPM values in the table ab
 #### b.
 (1 mark)
 Create an unnamed vector called "genes" to hold the names of the 7 genes. Make sure you enter the names in the same order as they are in the table.
+
 ```{r Assignment.W3.1.b}
 
 ```
@@ -73,6 +75,7 @@ Create an unnamed vector called "genes" to hold the names of the 7 genes. Make s
 #### c.
 (1 mark)
 Add names to the `blood` vector with the `genes` vector, so that each element has the gene name and the corresponding TPM value.
+
 ```{r Assignment.W3.1.c}
 
 ```
@@ -90,6 +93,7 @@ The expression levels of the 7 genes in the *lung* are as follows:
 | TPM  | 1.36 | 31.60 | 4.03   | 0.04    | 0.02 | 0.04   | 36.50 |
 
 Create a vector called "lung" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table. Add names to the `lung` vector with the `genes` vector, so that each element has the name of the gene for which is has the TPM value.
+
 ```{r Assignment.W3.1.d}
 
 ```
@@ -107,6 +111,7 @@ The expression levels of the 7 genes in the *stomach* are as follows:
 | TPM  | 0.60 | 12.17 | 0.84   | 0.85    | 0.00 | 0.04   | 36.59 |
 
 Create a vector called "stomach" to hold the 7 TPM values in the table above. Add a name to each element during the creation of the vector instead of adding them afterwards. Make sure you enter the names and values in the same order as they are in the table.
+
 ```{r Assignment.W3.1.e}
 
 ```
@@ -122,7 +127,8 @@ Create a vector called "stomach" to hold the 7 TPM values in the table above. Ad
 
 #### a.
 (1 mark)
-Using a sequence for indexing, assign the first 3 elements in the `blood` vector to a variable named "blood.1.to.3".
+Using a sequence for indexing, assign the first 3 elements in the `blood` vector to a variable named "blood_1_to_3".
+
 ```{r Assignment.W3.2.a}
 
 ```
@@ -134,7 +140,8 @@ Using a sequence for indexing, assign the first 3 elements in the `blood` vector
 
 #### b.
 (1 mark)
-Using positional indexing, assign the 2nd, 5th, and 7th element in the `lung` vector to a variable named "lung.2.5.7".
+Using positional indexing, assign the 2nd, 5th, and 7th element in the `lung` vector to a variable named "lung_2_5_7".
+
 ```{r Assignment.W3.2.b}
 
 ```
@@ -146,7 +153,8 @@ Using positional indexing, assign the 2nd, 5th, and 7th element in the `lung` ve
 
 #### c.
 (1 mark)
-Using a negative index, assign every element in the `stomach` vector except for the 4th to a variable named "stomach.not.4".
+Using a negative index, assign every element in the `stomach` vector except for the 4th to a variable named "stomach_not_4".
+
 ```{r Assignment.W3.2.c}
 
 ```
@@ -158,7 +166,8 @@ Using a negative index, assign every element in the `stomach` vector except for 
 
 #### d. 
 (1 mark)
-Using named indexing, assign the expression level of the genes CTCF and RBFOX1 in blood to a variable named "blood.CTCF.RBFOX1".
+Using named indexing, assign the expression level of the genes CTCF and RBFOX1 in blood to a variable named "blood_CTCF_RBFOX1".
+
 ```{r Assignment.W3.2.d}
 
 ```
@@ -174,7 +183,8 @@ Using named indexing, assign the expression level of the genes CTCF and RBFOX1 i
 
 #### a.
 (1 mark)
-Write a logical expression to return a logical vector indicating whether each expression level in the `lung` vector is greater than 1 TPM. Assign the output to a variable named "lung.greater.than.1".
+Write a logical expression to return a logical vector indicating whether each expression level in the `lung` vector is greater than 1 TPM. Assign the output to a variable named "lung_greater_than_1".
+
 ```{r Assignment.W3.3.a}
 
 ```
@@ -186,7 +196,8 @@ Write a logical expression to return a logical vector indicating whether each ex
 
 #### b.
 (2 marks)
-Using logical indexing, return only the elements in the `stomach` vector that have an expression level between 0.5 and 20 (inclusive). Assign the output to a variable named "stomach.0.5.to.20".
+Using logical indexing, return only the elements in the `stomach` vector that have an expression level between 0.5 and 20 (inclusive). Assign the output to a variable named "stomach_0.5_to_20".
+
 ```{r Assignment.W3.3.b}
 
 ```
@@ -198,8 +209,9 @@ Using logical indexing, return only the elements in the `stomach` vector that ha
 
 #### c.
 (3 marks)
-Using logical indexing, return only the elements in the `blood` vector for genes which contain an R in the name. Assign the output to a variable named "blood.R.genes". 
+Using logical indexing, return only the elements in the `blood` vector for genes which contain an R in the name. Assign the output to a variable named "blood_R_genes". 
 Note that your output should be a vector of elements with expression levels and gene names.
+
 ```{r Assignment.W3.3.c}
 
 ```
@@ -216,6 +228,7 @@ Note that your output should be a vector of elements with expression levels and 
 #### a. 
 (1 mark)
 Calculate the correlation in expression of the 7 genes between blood and lung tissues. Assign the correlation to a variable named "blood_lung_cor".
+
 ```{r Assignment.W3.4.a}
 
 ```
@@ -228,6 +241,7 @@ Calculate the correlation in expression of the 7 genes between blood and lung ti
 #### b.
 (1 mark)
 Calculate the correlation in expression of the 7 genes between stomach and lung tissues. Assign the correlation to a variable named "stomach_lung_cor".
+
 ```{r Assignment.W3.4.b}
 
 ```
@@ -239,7 +253,8 @@ Calculate the correlation in expression of the 7 genes between stomach and lung 
 
 #### c.
 (2 marks)
-Which tissue (blood or stomach) correlates better with lung tissue based on the expression level of these 7 genes? Assign your answer (either "blood" or "stomach") to a variable named "better.cor.tissue". 
+Which tissue (blood or stomach) correlates better with lung tissue based on the expression level of these 7 genes? Assign your answer (either "blood" or "stomach") to a variable named "better_cor_tissue". 
+
 ```{r Assignment.W3.4.c}
 
 ```
@@ -251,7 +266,8 @@ Which tissue (blood or stomach) correlates better with lung tissue based on the 
 
 #### d.
 (2 marks)
-Perform a t.test to determine if there is a significant difference in the expression levels of these 7 genes in stomach tissue vs. blood. Assign the output to a variable named "stomach.blood.difference".
+Perform a t.test to determine if there is a significant difference in the expression levels of these 7 genes in stomach tissue vs. blood. Assign the output to a variable named "stomach_blood_difference".
+
 ```{r Assignment.W3.4.d}
 
 ```
