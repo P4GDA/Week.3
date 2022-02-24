@@ -1,0 +1,372 @@
+---
+title: "3.2 Vector Indexing"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+```
+
+---
+
+## 3.2.1: Positional Indexing
+
+---
+
+### Single Values are Vectors
+
+Although the concept of vectors has only just been introduced, we have been unknowingly using them throughout the course. All single values we have used are vectors themselves.
+
+We can confirm this using the function `is.vector()` which returns a logical value indicating whether the provided argument is a vector.
+
+```{r}
+soil_B <- c(3.6, 4.2, 3.8)
+soil_B_plant_1 <- 3.6
+```
+
+Of course, `soil_B` will be a vector, as it has three elements.
+
+```{r}
+is.vector(soil_B)
+```
+
+However, so is the variable `soil_B_plant_1`, which only contains a single value.
+
+```{r}
+is.vector(soil_B_plant_1)
+```
+
+It is a vector with a single element.
+
+---
+
+### Indexing
+
+An *index* is the identifier of an element in a vector. When we discuss the index of multiple elements, we say *indices*. Using indices, we can perform vector *indexing*, the act of retrieving a subset of elements in a vector. 
+
+There are three types of indexing:
+- Positional indexing (in general this is referred to simply as indexing): indexing based on the position of an element within a vector.
+- Named indexing: indexing based on the name of an element in a vector.
+- Logical indexing: indexing based on logical values, usually whether an element in a vector passes a logical test (like a logical expression).
+
+---
+
+### Positional Indices
+
+All of the vectors we have looked at so far have been short and the output will have fit on one line. Let's look at a very long vector.
+
+```{r}
+1:100
+```
+
+The number of lines of output will depend on the size of your screen and window, but you should see multiple lines, each line preceded by a number in square brackets. This number indicates the *positional index* of the vector element that starts the line. The positional index of a vector element is a numeric representation of the position of the element within the vector.
+
+The first element in the above vector has a value of 1 and a positional index of 1. The second has a value of 2 and a positional index of 2, so on and so forth.
+
+Let's look at another vector to better understand this concept. This vector contains all the cell lines that a lab uses.
+
+```{r}
+cell_lines <- c("GM12878", "HEK293", "HeLa", "hESC", "HUVEC", "K562")
+cell_lines
+```
+
+This vector contains 6 elements. The first element has the value "GM12878" and has a positional index 1. This table shows the positional indices and value of each element:
+
+| Index |	1       | 2       | 3       | 4       | 5       | 6       |
+| Value | GM12878 | HEK293  | HeLa    | hESC    | HUVEC   | K562    |
+
+Throughout the rest of section 3.2.1 all indexing will be positional.
+
+---
+
+### Indexing a Single Element
+
+It is often useful during analysis to use only a single value from your vector or a subset of values in your vector. We can do this by indexing the vector. The index of the value you want to return is placed within square brackets `[]` directly following the variable name of the vector:
+
+    vector[index]
+
+If we want to return only the first value in the vector (the value at positional index 1), we can *retrieve* it like this:
+
+```{r}
+cell_lines[1]
+```
+
+The value at the first index, "GM12878", is returned.
+
+Various terminology is used when discussing indexing. Above we said we are "retrieving" the value at specific index. We can also say we are *accessing* the value at a specific index, or "returning" the value at a specific index.
+
+We can access the value at positional index 4 using the same format:
+
+```{r}
+cell_lines[4]
+```
+
+Indexing with one (or more) numeric values is called "positional indexing" because the numeric index describes the **position** of the value in the vector.
+
+---
+
+### Indexing Multiple Elements
+
+First we will look at indexing **multiple consecutive elements**. We can do this with sequence vectors in the square brackets. 
+
+    vector[start_index:end_index]
+
+If we want to return the first three values in our vector, we can use the sequence `1:3`.
+
+```{r}
+cell_lines[1:3]
+```
+
+Similarly, we can retrieve elements 4 and 5:
+
+```{r}
+cell_lines[4:5]
+```
+
+You may also need to index **multiple non-consecutive elements**. This is done with a numeric vector within the square brackets.
+    
+    vector[c(index_1, index_2, ..., index_n)] 
+
+We can retrieve the values at indices 1, 3, and 5 by creating a vector containing those numeric values within the square brackets.
+
+```{r}    
+cell_lines[c(1, 3, 5)]
+```
+
+In this example, we are accessing the values at indices 2 and 6.
+
+```{r}
+cell_lines[c(2, 6)]
+```
+
+We can also return the values in a **different order** than that of the original vector by using a vector of indices in the order that we want them returned. 
+
+For example if we want to retrieve the values at indices 1, 3, and 5, but we want them in the order 5, 1, 3, we can change the numeric vector of indices. Compare the output to the table of values and indices:
+
+| Index |	1       | 2       | 3       | 4       | 5       | 6       |
+| Value | GM12878 | HEK293  | HeLa    | hESC    | HUVEC   | K562    |
+
+```{r}
+cell_lines[c(5, 1, 3)]
+```
+
+We can also use decreasing sequences to retrieve values in reverse order:
+
+```{r}
+cell_lines[c(3:1)]
+```
+
+**Negative indices** exclude elements from the output. 
+
+```{r}
+cell_lines[c(-2, -6)]
+```
+
+Here, only the values at indices 1, 3, 4 and 5 were returned.
+
+Using a negative sequence will exclude all the indices at the values used in the sequence. For example, this returns only the values at indices 5 and 6.
+
+```{r}
+cell_lines[c(-1:-4)]
+```
+
+---
+
+## 3.2.2: Named Indexing & Editing Vectors
+
+---
+
+### Named Indexing
+
+We can also index vectors with element names. Let's look back at our `soil_B_light` vector from the last module.
+
+```{r}
+soil_B_light <- c("low"=3.6, "med"=4.2, "high"=3.8)
+```
+
+We can index the first element using the positional index as before. 
+
+```{r}
+soil_B_light[1]
+```
+
+However, we can also index named vectors with the names of the values we want to return. Thus, we could get the same output as above by using the name "low" in the square brackets. This is called *named indexing*. 
+
+```{r}
+soil_B_light["low"]
+```
+
+For named indexing it is important that the names of each element are different, as was pointed out in module 3.1.
+
+We can retrieve multiple values by making a character vector containing multiple element names within the square brackets.
+
+```{r}
+soil_B_light[c("low", "high")]
+```
+
+And as with positional indexing, the order of the name indices will affect the order in which the values are returned:
+
+```{r}
+soil_B_light[c("med", "low")]
+```
+
+Note that the `cell_lines` vector cannot be indexed using named indexing, as the elements do not have names. The 5th element in `cell_lines` is "HUVEC". If we attempt to index this element by the value of the element, it will not work:
+
+```{r}
+cell_lines["HUVEC"]
+```
+
+It returns `NA`. In R, `NA` means "not available". There was no element with the name "HUVEC", thus no value is available. 
+
+---
+
+### Editing Vectors
+
+Vectors can be edited or "updated". In the last module we learned how to add new elements to the start and end of a vector with the `c()` function. Using indexing, there are many more ways we can edit a vector.
+
+The cell line at index 3 in our `cell_lines` vector is HeLa:
+
+```{r}
+cell_lines[3]
+```
+
+The full name for the cell line used in the lab is HeLa-S3, not HeLa. So we can update it by assigning the value "HeLa-S3" to the third index.
+
+```{r}
+cell_lines[3] <- "HeLa-S3"
+cell_lines
+```
+
+We can also add new elements to the end of the vector by assigning a value to an index that does not yet exist. The lab started using the CHO cell line. Because there are 6 elements in the vector, we can assign the new value to index 7.
+
+```{r}
+cell_lines[7] <- "CHO"
+cell_lines
+```
+
+If the lab stops using hESC cells, we can remove the value from the vector by assigning the vector excluding the value at index 4 to the variable `cell_lines`.
+
+```{r}
+cell_lines <- cell_lines[-4]
+cell_lines
+```
+
+Named vectors, like `soil_B_light`, can also be edited via indexing. For example, we can change the height of the plant grown in with a high amount of light:
+
+```{r}
+soil_B_light["high"] <- 3.9
+soil_B_light
+```
+
+We can also edit the names of the vector elements:
+
+```{r}
+names(soil_B_light)[2] <- "medium"
+soil_B_light
+```
+
+And add new elements with names:
+
+```{r}
+soil_B_light["none"] <- 0.0
+soil_B_light
+```
+
+---
+
+## 3.2.3: Logical Indexing
+
+---
+
+### Logical Expressions with Vectors
+
+Last week we learned about logical expressions. We can also write logical expressions that are applied to an entire vector. 
+
+Let's look at an example using our `soil_A` vector from the last module. 
+
+```{r}
+soil_A <- c(5.9, 7.2, 6.8)
+```
+
+The following logical expression checks if each value in `soil_A` is greater than 7.
+
+```{r}
+soil_A > 7
+```
+
+It returns a logical vector of the same length as the `soil_A` vector in which each element indicates whether the value at the same index in `soil_A` is greater than 7.
+
+Let's look at some more examples. Here we check if each value is less than or equal to 6.8.
+
+```{r}
+soil_A <= 6.8
+```
+
+This logical expressions checks which values in `soil_B_light` are between 3.75 and 4.
+
+```{r}
+soil_B_light > 3.75 & soil_B_light < 4
+```
+
+---
+
+### Indexing with Logical Vectors
+
+A logical vector of the same length (same number of elements) as another vector can be used to index it. This is called *logical indexing*. The logical vector used for indexing must be of the same length as the vector we are indexing. 
+
+For example, let's create a logical vector with 6 logical values, the first and last being `TRUE` and the rest being `FALSE`.
+
+```{r}
+logical_vector <- c(TRUE, FALSE, FALSE, FALSE, FALSE, TRUE)
+```
+
+We can use the `length()` function to verify that the vector has a length of 6.
+
+```{r}
+length(logical_vector) 
+```
+
+The `cell_lines` vector also has a length of 6.
+
+```{r}
+length(cell_lines)
+```
+
+Thu,s we can index the `cell_lines` vector using our `logical_vector`. The indices in the `cell_lines` vector that have the value `TRUE`, according to the order in the logical vector, will be returned.
+
+```{r}
+cell_lines[logical_vector]
+```
+
+So, the first and last value in `cell_lines` are returned.
+
+We can create a logical vector using a logical expression. Earlier we checked which of the values in `soil_A` were greater than 7. We can save that as a vector.
+
+```{r}
+over_7_cm <- soil_A > 7
+over_7_cm
+```
+
+We can now use this logical vector to index `soil_A` and return only the values that are greater than 7.
+
+```{r}
+soil_A[over_7_cm]
+```
+
+---
+
+### Indexing with Logical Expressions
+
+Instead of creating a new vector to hold the logical values, the logical expression can be placed directly within the square brackets. The logical expression will be executed first and return a logical vector which is then used for logical indexing.
+
+```{r}
+soil_A[soil_A <= 6.8]
+```
+
+This type of indexing is particularly useful for named vectors. Here we can easily see which amount of light leads to a plant between 3.75 and 4 cm in height:
+
+```{r}
+soil_B_light[soil_B_light > 3.75 & soil_B_light < 4]
+```
+
+---
