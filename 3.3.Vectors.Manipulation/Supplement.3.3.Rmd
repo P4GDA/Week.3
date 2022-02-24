@@ -1,0 +1,348 @@
+---
+title: "3.3 Vector Manipulation"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+```
+
+---
+
+## 3.3.1: Vector Functions & Math
+
+---
+
+### Functions Applied to Each Vector Element
+
+Many built-in functions in R take vectors as arguments. In fact, all of the built-in functions we have already learned and applied to single values are also applicable to vectors, because as we now know, single values are just vectors with one element.
+
+When we applied the built-in functions to single element vectors, the return value was also a single element vector. When we apply these functions to a vector with multiple elements, the return value is also a vector with multiple elements.
+
+For example, if we apply the `log()` function to a vector containing the numbers 1 through 10, the natural logarithm (the default base of the `log()` function) of each individual value will be taken. 
+
+```{r}
+ln_1_to_10 <- log(1:10)
+ln_1_to_10
+```
+
+The returned vector is also of length 10. Internally, R applied the log function to each element: `log(1)`, `log(2)`, `log(3)`, ... `log(9)`, `log(10)` and a result was returned for each.
+
+Similarly, if we want to round all of these numbers to 2 digits after the decimal place, we can apply the round function to the entire vector.
+
+```{r}
+round(ln_1_to_10, 2)
+```
+
+Again we return a new vector with each individual element rounded.
+
+We will explore the application of built-in functions to vectors using the pea plant heights data set from previous sections.
+
+```{r}
+plant_heights <- c("soil_A_low"=5.9,
+                   "soil_A_med"=7.2,
+                   "soil_A_high"=6.8,
+                   "soil_B_low"=3.6,
+                   "soil_B_med"=4.2,
+                   "soil_B_high"=3.9)
+```
+
+The names of the vector elements are quite long. We can use the `gsub()` function to replace "soil_" with just the letter "s" in all of the names at the same time.
+
+```{r}
+newnames <- gsub("soil_", "s", 
+                 names(plant_heights))
+newnames
+```
+
+Now we can assign this new vector of names back to the names of the `plant_heights` vector to change them.
+
+```{r}
+names(plant_heights) <- newnames
+plant_heights
+```
+
+Using the `grepl()` function we can search each element in a vector and return a logical value for each vector element. 
+
+For example, we can check which names in `plant_heights` contain "sA", and thus which elements in the vector are values for plants that were grown in soil A.
+
+```{r}
+grepl("sA", names(plant_heights))
+```
+
+The first three return `TRUE`. We can use this to index the plant heights so that we can output only the heights of the 3 plants grown in soil A.
+
+```{r}
+plant_heights[grepl("sA", names(plant_heights))]
+```
+
+---
+
+### Vector Information Functions
+
+There are two types of functions that take vector arguments:
+- Functions that are applied to each vector element (above)
+- Functions that provide information about or summary statistics for a vector as a whole
+
+One example of this is the `length()` function, which simply provides the length of a vector (the number of elements).
+
+```{r}
+length(plant_heights)
+```
+
+Other common functions that provide information about the values in a vector include:
+
+`min()` - returns the minimum value in the vector
+
+```{r}
+min(plant_heights)
+```
+
+`max()` - returns the maximum value in the vector
+
+```{r}
+max(plant_heights)
+```
+
+`mean()` - returns the mean (average) of the values in the vector
+
+```{r}
+mean(plant_heights)
+```
+
+`sum()` - returns the sum of the values in the vector
+
+```{r}
+sum(plant_heights)
+```
+
+`sd()` - returns the standard deviation of the values in the vector
+
+```{r}
+sd(plant_heights)
+```
+
+Earlier, we got the heights of the plants that were grown in soil A by using the return values of the `grepl()` for logical indexing of `plant_heights`.
+
+```{r}
+plant_heights[grepl("sA", names(plant_heights))]
+```
+
+To get the mean height of the plants grown in soil A we can nest this code within the `mean()` function:
+
+```{r}
+mean(plant_heights[grepl("sA", names(plant_heights))])
+```
+
+We can also get the mean of the plants grown in soil B:
+
+```{r}
+mean(plant_heights[grepl("sB", names(plant_heights))])
+```
+
+One of the most useful summarizing functions in data analysis is the `summary()` function. The `summary()` function returns information about the distribution of values in your vector.
+
+```{r}
+summary(plant_heights)
+```
+
+The function returns a named vector of length 6 (no matter the length of your vector argument) with several key statistics including the 1st and 3rd quartile. Quartiles divide the data into 4 quarters, the 1st quartile is the value at which 25% of the data is less than that value. The 3rd quartile is the value at which 75% of the data is less than that value.
+
+For logical vectors, the functions `any()` and `all()` can be very useful. Both functions take a logical vector as an argument.
+
+- `any()` returns `TRUE` if 1 or more element in the vector is `TRUE`
+- `all()` returns `TRUE` if all the values in the vector are `TRUE`
+
+You can of course also use these functions with a logical expression nested within it. Let's check if each plant heights is greater than 7.
+
+```{r}
+plant_heights > 7
+```
+
+With this logical vector we can ask: "are any of the plants over 7 cm tall?"
+
+```{r}
+any(plant_heights > 7)
+```
+
+"Are all of the plants over 7 cm tall?"
+
+```{r}
+all(plant_heights > 7)
+```
+
+"Are all of the plants over 3 cm tall?"
+
+```{r}
+all(plant_heights > 3)
+```
+
+These functions are very useful with very large vectors, where it is not easy to scan the full vector to answer these questions.
+
+---
+
+### Vector Math
+
+We have seen how comparison and logical operators can be applied to vectors in section 3.2.3, but we can also apply mathematical operators to vectors.
+
+We can add, subtract, mutiply, divide, etc. each value in a vector by the same number. Here we multiply each value in the vector by 2.
+
+```{r}
+2 * plant_heights
+```
+
+We can also subtract 1 from each value in a vector.
+
+```{r}
+plant_heights - 1
+```
+
+We can also perform mathematical operations with 2 or more vectors containing multiple elements. For example, we can add the sequences `2:4` and `10:12`. Each of these vectors has a length of 3. 
+
+```{r}
+2:4 + 10:12
+```
+
+How does this work? 
+The value at index 1 in the first vector and in the second vector are added together: 2 + 10 = 12. 
+The value at index 2 in the first vector and in the second vector are added together: 3 + 11 = 14. 
+The value at index 3 in the first vector and in the second vector are added together: 4 + 12 = 16. 
+
+We can also perform mathematical operations with 2 or more vectors of different lengths. The vector `2:7` has length 6, and the vector `c(2, 1, 5)` has length 3.
+
+```{r}
+2:7 + c(2, 1, 5)
+```
+
+How does this work? For the first three indices it is straightforward:
+
+2 + 2 = 4
+3 + 1 = 4
+4 + 5 = 9
+
+Now we have values 5, 6, and 7 (indices 4, 5, and 6) left in the first vector, and no values in the second. When this happens, R *recycles* the values in the shorter vector. So it starts back at the first index (value = 2):
+
+5 + 2 = 7
+6 + 1 = 7
+7 + 5 = 12
+
+Because the length of the shorter vector (3) was a multiple of the length of the longer vector (6), the entirety of the shorter vector was used twice.
+
+What would happen if the length of the shorter vector was not a multiple of the length of the longer vector?
+
+```{r}
+c(4, 10, 7) / c(2, 1, 2, 1, 2)
+```
+
+We get a warning stating that the "longer object length is not a multiple of shorter object length", but, a vector is returned. The shorter vector is still recycled, but it is not used in full the second time.
+
+In the earlier examples when we used mathematical operators with a multiple element vector and a single value vector, the same thing was occurring. The single value is simply recycled, and therefore the same value is used for the mathematical operation with all elements in the longer vector.
+
+```{r}
+c(4, 10, 7) - 1
+```
+
+---
+
+## 3.3.2: Paired & Unpaired Data
+
+---
+
+### Yeast Growth Data
+
+Hahn-Hagerdal et al. determined the growth rate of strains of Saccharomyces cerevisiae (Baker's yeast) on different cultivation media (YP, DM, YNB, SC) in the presence of two different carbon sources: glucose and xylose.
+
+More information on the differences between the media and the methods can be found in the article:
+
+    Hahn-Hägerdal, B., Karhumaa, K., Larsson, C.U. et al. Role of cultivation media in the development of yeast strains for large scale industrial use. Microb Cell Fact 4, 31 (2005). https://doi.org/10.1186/1475-2859-4-31
+
+Growth rate data for strain TMB 3400 (rates are per hour):
+
+
+|                        | YP   | DM   | YNB  | SC   |
+| ---------------------- | ---- | ---- | ---- | ---- |
+| Growth Rate on Glucose | 0.59 | 0.43 | 0.45 | 0.49 |
+| Growth Rate on Xylose  | 0.40 | 0.26 | 0.27 | 0.30 |
+
+```{r}
+glucose_growth <- c(0.59, 0.43, 0.45, 0.49)
+xylose_growth <- c(0.40, 0.26, 0.27, 0.30)
+media <- c("YP", "DM", "YNB", "SC")
+names(glucose_growth) <- media
+names(xylose_growth) <- media
+```
+
+---
+
+### Paired Vectors
+
+These two vectors are "paired", there is coupling, or correspondence, between the two vectors at each index.
+
+At index 1 in the `glucose_growth` vector and at index 1 in the `xylose_growth` vector, the growth is measured on the same type of media, the same is true for index 2 in both vectors, etc.
+
+You can usually tell when two vectors are paired if each element in one vector shares a unique feature with each element in another vector. Another example would be vectors of measurements for two different samples in a time course.
+
+Because these vectors are paired, we can plot the data in them against each other in a scatter plot using the `plot()` function.
+
+Description: outputs a scatter plot
+Usage: `plot(x, y)`
+Arguments: `x` - numeric vector of x coordinates
+           `y` - numeric vector of y coordinates
+Return Value: Graphical output
+
+```{r}
+plot(glucose_growth, xylose_growth)
+```
+
+We can see from this plot that while xylose leads to a lower growth rate overall, the growth rate correlates across cultivation media.
+
+We can confirm this using the `cor()` function.
+
+Description: compute correlation between two vectors
+Usage: `cor(x, y, method=c("pearson", "kendall", "spearman"))`
+Arguments: `x` - numeric vector
+           `y` - numeric vector
+           `method` - correlation computation method, default is Pearson correlation
+Return Value: correlation
+
+```{r}
+cor(glucose_growth, xylose_growth)
+```
+
+A Pearson correlation of 1 shows perfect correlation, so we can see that the data is very well correlated.
+
+Another common statistical test in bioinformatic analysis is the t-test. A t-test tests the null hypothesis that two samples have the same mean, or if one sample has a mean of a specified value. We have observed from the plot and the data that the xylose growth rates are lower than the glucose growth rates, and a t-test can check if this difference is significant. A t-test can be paired or unpaired. We have determined that we are working with paired data (each element in the two vectors correspond to one another via cultivation media).
+
+Description: Performs 1 & 2 sample t-tests on vectors of data.
+Usage: `t.test(x, y=NULL, paired=FALSE)`
+Arguments: `x` - numeric vector
+           `y` - numeric vector for 2 sample test
+           `paired` - logical indicating paired values (default is `FALSE`)
+Return Value: Summary of results
+
+```{r}
+t.test(glucose_growth, xylose_growth, paired=TRUE)
+```
+
+A summary of the results of the t-test is output, including the p-value which is 3.97e-05. A p-value is generally considered to be significant if it is <= 0.05, thus the null hypothesis is rejected and we can conclude that glucose and xylose growth rates are significantly different.
+
+---
+
+### Unpaired Vectors
+
+Below is fabricated data based on the data from Hahn-Hagerdal et al. These data represent the growth rates for 5 replicates for yeast grown on YP with glucose, and the growth rates for 5 replicates for yeast grown on YP with xylose.
+
+```{r}
+YP_glucose_reps <- c(0.58, 0.62, 0.60, 0.57, 0.58)
+YP_xylose_reps <- c(0.41, 0.36, 0.42, 0.43, 0.38)
+```
+
+There is no correspondence between elements at the same index in each of these two vectors. The values at index 1 of each vector do not share any specific features. Thus, it would not make sense to make a scatter plot of these values, nor to check the correlation. However, we can perform an unpaired t-test to see if the means are different.
+
+```{r}
+t.test(YP_glucose_reps, YP_xylose_reps)
+```
+
+As the p-value is less than 0.05, thus the growth measurements are significantly different between the two vectors.
+
+---
