@@ -23,7 +23,7 @@ At the end of this tutorial you should be able to:
 
 ---
 
-## 3.1.2: Vector Creation
+## 3.1.1: Vector Creation
 
 ---
 
@@ -103,7 +103,7 @@ The names in this vector are not unique. Assign new names to the vector so that 
 
 ---
 
-## 3.1.3: Sequences & Adding Elements
+## 3.1.2: Sequences & Adding Elements
 
 ---
 
