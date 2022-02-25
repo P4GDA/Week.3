@@ -369,4 +369,38 @@ This type of indexing is particularly useful for named vectors. Here we can easi
 soil_B_light[soil_B_light > 3.75 & soil_B_light < 4]
 ```
 
+A useful operator for logical indexing is the `%in%` operator. The syntax for using this operator is:
+
+        vector1 %in% vector2
+
+This will check each element in `vector1` to see if it is contained within `vector2` and will return a logical vector of the same length as `vector1`. Elements in the output vector with the value `TRUE` indicate that the element at that position in `vector1` is contained within `vector2`.
+
+For example, the following two vectors contain a set of genes (`gene_set`) that were found to be enriched (more highly expressed) in a mutant human cell line than in a control cell line. The second vector (`BCDX2_complex`) is a list of genes that code for the proteins involved the BCDX2 protein complex in humans. 
+
+```{r}
+gene_set <- c("GATA4", "TP53", "XRCC2", "RBFOX1", "MAP2K1", "QKI", "RAD51C", "CHTF18", "RFC2")
+BCDX2_complex <- c("RAD51B", "RAD51C", "RAD51D", "XRCC2")
+```
+
+To check if any of the enriched genes are part of the BCDX2 complex, we can use the `%in%` operator:
+
+```{r}
+gene_set %in% BCDX2_complex
+```
+
+The 3rd and 7th element are `TRUE`, thus the 3rd and 5th elements of `gene_set` are in the `BCDX2_complex` vector. The output can also be used to index `gene_set` to return the names of the genes that are contained in `BCDX2_complex`. 
+
+```{r}
+gene_set[gene_set %in% BCDX2_complex]
+```
+
+Though you could visually scan the `gene_set` vector for occurrences of the elements in `BCDX2_complex`, this is prone to human error, especially since many gene names are only different by one letter or number. Furthermore, if the vectors were much longer this would be very difficult. For example: 
+
+```{r}
+gene_set <- c("GATA4", "TP53", "XRCC2", "ARID1A", "RBFOX1", "MAP2K1", "QKI", "RAD51C", "CHTF18", "RFC2", "SUPT16H", "CHAF1B", "SLBP", "SNU13", "RBB1", "DDH1", "TOP2B", "CFTR", "WASH7P", "ASF1A", "HIST1H3A", "HIRA", "RC3H1", "MCM7", "BACH1", "MLH1", "SMARCB1", "BARD1", "BLM", "FANCA", "RAD50", "MRE11A", "LIG4", "PMS1", "COPS4", "GPS1", "ERCC8", "CUL4A", "BAZ1B", "PCBP3", "HNRNPL")
+WINAC_complex <- c("ACTL6A", "ARID1A", "CHAF1A", "TOP2B", "SUPT16H", "SMARCA2", "SMARCC1", "SMARCC2", "SMARCB1", "SMARCD1", "SMARCE1", "SMARCA4", "BAZ1B", "VDR")
+
+gene_set[gene_set %in% WINAC_complex]
+```
+
 ---
