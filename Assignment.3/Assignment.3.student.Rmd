@@ -1,5 +1,5 @@
 ---
-title: "Week 3 Assignment"
+title: "Assignment 3"
 output: html_document
 ---
 
@@ -43,12 +43,12 @@ The GTEx Project is a resource that provides global RNA expression data across h
 
 #### a.
 (1 mark)
-The expression levels of the 7 genes in *whole blood* are as follows:
+The expression levels of the seven genes in *whole blood* are as follows:
 
 | Gene | CD19 | CTCF  | FCER1A | KIRREL2 | LPA  | RBFOX1 | TUBG1 |
 | TPM  | 7.28 | 14.32 | 1.67   | 0.06    | 0.00 | 0.01   | 8.91  |
 
-Create an unnamed vector called "blood" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table.
+Create an unnamed vector named "blood" to hold the seven TPM values in the table above. Make sure you enter the values in the same order as they are in the table.
 
 ```{r Assignment.W3.1.a}
 
@@ -61,7 +61,7 @@ Create an unnamed vector called "blood" to hold the 7 TPM values in the table ab
 
 #### b.
 (1 mark)
-Create an unnamed vector called "genes" to hold the names of the 7 genes. Make sure you enter the names in the same order as they are in the table.
+Create an unnamed vector named "genes" to hold the names of the seven genes. Make sure you enter the names in the same order as they are in the table.
 
 ```{r Assignment.W3.1.b}
 
@@ -87,12 +87,12 @@ Add names to the `blood` vector with the `genes` vector, so that each element ha
 
 #### d.
 (2 marks)
-The expression levels of the 7 genes in the *lung* are as follows:
+The expression levels of the seven genes in the *lung* are as follows:
 
 | Gene | CD19 | CTCF  | FCER1A | KIRREL2 | LPA  | RBFOX1 | TUBG1 |
 | TPM  | 1.36 | 31.60 | 4.03   | 0.04    | 0.02 | 0.04   | 36.50 |
 
-Create a vector called "lung" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table. Add names to the `lung` vector with the `genes` vector, so that each element has the name of the gene for which is has the TPM value.
+Create a vector named "lung" to hold the 7 TPM values in the table above. Make sure you enter the values in the same order as they are in the table. Add names to the `lung` vector with the `genes` vector, so that each element has the name of the gene for which is has the TPM value.
 
 ```{r Assignment.W3.1.d}
 
@@ -105,12 +105,12 @@ Create a vector called "lung" to hold the 7 TPM values in the table above. Make 
 
 #### e.
 (2 marks)
-The expression levels of the 7 genes in the *stomach* are as follows:
+The expression levels of the seven genes in the *stomach* are as follows:
 
 | Gene | CD19 | CTCF  | FCER1A | KIRREL2 | LPA  | RBFOX1 | TUBG1 |
 | TPM  | 0.60 | 12.17 | 0.84   | 0.85    | 0.00 | 0.04   | 36.59 |
 
-Create a vector called "stomach" to hold the 7 TPM values in the table above. Add a name to each element during the creation of the vector instead of adding them afterwards. Make sure you enter the names and values in the same order as they are in the table.
+Create a vector named "stomach" to hold the seven TPM values in the table above. Add a name to each element during the creation of the vector instead of adding them afterwards. Make sure you enter the names and values in the same order as they are in the table.
 
 ```{r Assignment.W3.1.e}
 
@@ -127,7 +127,7 @@ Create a vector called "stomach" to hold the 7 TPM values in the table above. Ad
 
 #### a.
 (1 mark)
-Using a sequence for indexing, assign the first 3 elements in the `blood` vector to a variable named "blood_1_to_3".
+Using a sequence for indexing, assign the first three elements in the `blood` vector to a variable named "blood_1_to_3".
 
 ```{r Assignment.W3.2.a}
 
@@ -140,7 +140,7 @@ Using a sequence for indexing, assign the first 3 elements in the `blood` vector
 
 #### b.
 (1 mark)
-Using positional indexing, assign the 2nd, 5th, and 7th element in the `lung` vector to a variable named "lung_2_5_7".
+Using positional indexing, assign the second, fifth, and seventh elements in the `lung` vector to a variable named "lung_2_5_7".
 
 ```{r Assignment.W3.2.b}
 
@@ -153,7 +153,7 @@ Using positional indexing, assign the 2nd, 5th, and 7th element in the `lung` ve
 
 #### c.
 (1 mark)
-Using a negative index, assign every element in the `stomach` vector except for the 4th to a variable named "stomach_not_4".
+Using a negative index, assign every element in the `stomach` vector except for the fourth to a variable named "stomach_not_4".
 
 ```{r Assignment.W3.2.c}
 
@@ -227,7 +227,7 @@ Note that your output should be a vector of elements with expression levels and 
 
 #### a. 
 (1 mark)
-Calculate the correlation in expression of the 7 genes between blood and lung tissues. Assign the correlation to a variable named "blood_lung_cor".
+Calculate the correlation in expression of the seven genes between blood and lung tissues. Assign the correlation to a variable named "blood_lung_cor".
 
 ```{r Assignment.W3.4.a}
 
@@ -240,7 +240,7 @@ Calculate the correlation in expression of the 7 genes between blood and lung ti
 
 #### b.
 (1 mark)
-Calculate the correlation in expression of the 7 genes between stomach and lung tissues. Assign the correlation to a variable named "stomach_lung_cor".
+Calculate the correlation in expression of the seven genes between stomach and lung tissues. Assign the correlation to a variable named "stomach_lung_cor".
 
 ```{r Assignment.W3.4.b}
 
@@ -253,7 +253,7 @@ Calculate the correlation in expression of the 7 genes between stomach and lung 
 
 #### c.
 (2 marks)
-Which tissue (blood or stomach) correlates better with lung tissue based on the expression level of these 7 genes? Assign your answer (either "blood" or "stomach") to a variable named "better_cor_tissue". 
+Which tissue (blood or stomach) correlates better with lung tissue based on the expression level of these seven genes? Assign your answer (either "blood" or "stomach") to a variable named "better_cor_tissue". 
 
 ```{r Assignment.W3.4.c}
 
@@ -266,7 +266,7 @@ Which tissue (blood or stomach) correlates better with lung tissue based on the 
 
 #### d.
 (2 marks)
-Perform a t.test to determine if there is a significant difference in the expression levels of these 7 genes in stomach tissue vs. blood. Assign the output to a variable named "stomach_blood_difference".
+Perform a t.test to determine if there is a significant difference in the expression levels of these seven genes in stomach tissue vs. blood. Assign the output to a variable named "stomach_blood_difference".
 
 ```{r Assignment.W3.4.d}
 

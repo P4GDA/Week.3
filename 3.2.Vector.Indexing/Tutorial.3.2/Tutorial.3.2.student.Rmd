@@ -23,7 +23,7 @@ At the end of this tutorial you should be able to:
 
 ---
 
-## 3.2.1: Positional Indexing
+## 3.2.1 Positional Indexing
 
 ---
 
@@ -32,19 +32,19 @@ We will use the same data as the last tutorial. As a reminder, a scientist has m
 2. in the presence of the antibiotic ampicillin
 3. in the presence of no antibiotics
 
-The OD measurements for 6 replicates of E. coli after 24 hours in the presence of no antibiotics are saved in the vector `no_antibiotic_OD`.
+The OD measurements for six replicates of E. coli after 24 hours in the presence of no antibiotics are saved in the vector `no_antibiotic_OD`.
 
 ```{r}
 no_antibiotic_OD <- c(1.32, 1.02, 1.48, 1.71, 1.23, 1.45)
 ```
 
-The OD measurements for 3 replicates of E. coli after 24 hours in the presence of kanamycin are saved in the vector `kanamycin_OD`.
+The OD measurements for three replicates of E. coli after 24 hours in the presence of kanamycin are saved in the vector `kanamycin_OD`.
 
 ```{r}
 kanamycin_OD <- c(0.05, 0.01, 0.03)
 ```
 
-The OD measurements for 3 replicates of E. coli after 24 hours in the presence of ampicillin are saved in the vector `ampicillin_OD`.
+The OD measurements for three replicates of E. coli after 24 hours in the presence of ampicillin are saved in the vector `ampicillin_OD`.
 
 ```{r}
 ampicillin_OD <- c(0.02, 0.01, 0.04)
@@ -112,11 +112,11 @@ Output all of the elements in `no_antibiotic_OD` vector EXCEPT for the second an
 
 ---
 
-## 3.2.2: Named Indexing & Editing Vectors
+## 3.2.2 Named Indexing & Editing Vectors
 
 ---
 
-The scientist has 8 mutant strains of E. coli that grow in the presence of no antibiotic that they hypothesize are resistant to antibiotics. They want to check if any of them are resistant to kanamycin or ampicillin, in other words, if they grow in the presence of kanamycin or ampicillin.
+The scientist has eight mutant strains of E. coli that grow in the presence of no antibiotic that they hypothesize are resistant to antibiotics. They want to check if any of them are resistant to kanamycin or ampicillin, in other words, if they grow in the presence of kanamycin or ampicillin.
 
 The scientist grows the 8 mutant strains in *kanamycin* and checks the OD after 24 hours. 
 
@@ -129,9 +129,11 @@ The scientist grows the 8 mutant strains in *ampicillin* and checks the OD after
 | OD | 0.06  | 0.03  | 1.57  | 0.04  | 1.48  | 0.02  | 1.77  | 0.04  |
 
 ```{r}
-mut_kan_OD <- c("mut_A"=1.24, "mut_B"=0.02, "mut_C"=0.13, "mut_D"=1.45, "mut_E"=1.36, "mut_F"=0.04, "mut_G"=0.01, "mut_H"=1.19)
+mut_kan_OD <- c("mut_A" = 1.24, "mut_B" = 0.02, "mut_C" = 0.13, "mut_D" = 1.45,
+                "mut_E" = 1.36, "mut_F" = 0.04, "mut_G" = 0.01, "mut_H" = 1.19)
 
-mut_amp_OD <- c("mut_A"=0.06, "mut_B"=0.03, "mut_C"=1.57, "mut_D"=0.84, "mut_E"=1.48, "mut_F"=0.02, "mut_G"=1.77, "mut_H"=0.04)
+mut_amp_OD <- c("mut_A" = 0.06, "mut_B" = 0.03, "mut_C" = 1.57, "mut_D" = 0.84, 
+                "mut_E" = 1.48, "mut_F " =0.02, "mut_G" = 1.77, "mut_H" = 0.04)
 ```
 
 Retrieve the OD measurement after 24 hours on ampicillin for mutant G using named indexing. Assign the value to a variable named "mut_G_amp_OD".
@@ -182,7 +184,7 @@ When copying the OD measurements the scientist made a mistake. The OD measuremen
 ```
 **Check your answer by running the above block** 
 
-Later on, the scientist found that the 2nd wild-type replicate grown on no antibiotic was contaminated. Remove the value at index 2 from the `no_antibiotic_OD` vector.
+Later on, the scientist found that the second wild-type replicate grown on no antibiotic was contaminated. Remove the value at index 2 from the `no_antibiotic_OD` vector.
 
 ```{r}
 # Write and execute your code here
@@ -196,7 +198,7 @@ Later on, the scientist found that the 2nd wild-type replicate grown on no antib
 
 ---
 
-## 3.2.3: Logical Indexing
+## 3.2.3 Logical Indexing
 
 ---
 
@@ -254,7 +256,7 @@ Can wild-type E. coli grown on ampicillin? Use logical indexing to retrieve the 
 ```
 **Check your answer by running the above block** 
 
-Which of the 8 mutants are kanamycin resistant? Use logical indexing to retrieve the elements in `mut_kan_OD` that have an OD > 1. Assign the result of the logical indexing to a variable named "kan_resistant_mutants".
+Which of the eight mutants are kanamycin resistant? Use logical indexing to retrieve the elements in `mut_kan_OD` that have an OD > 1. Assign the result of the logical indexing to a variable named "kan_resistant_mutants".
 
 ```{r}
 # Write and execute your code here
@@ -266,7 +268,7 @@ Which of the 8 mutants are kanamycin resistant? Use logical indexing to retrieve
 ```
 **Check your answer by running the above block** 
 
-Which of the 8 mutants are ampicillin resistant? Use logical indexing to retrieve the elements in `mut_amp_OD` that have an OD > 1. Assign the result of the logical indexing to a variable named "amp_resistant_mutants".
+Which of the eight mutants are ampicillin resistant? Use logical indexing to retrieve the elements in `mut_amp_OD` that have an OD > 1. Assign the result of the logical indexing to a variable named "amp_resistant_mutants".
 
 ```{r}
 # Write and execute your code here
@@ -280,7 +282,7 @@ Which of the 8 mutants are ampicillin resistant? Use logical indexing to retriev
 
 Looking at the OD values of wild-type E. coli grown in ampicillin and kanamycin, the scientist decides that an OD < 0.1 means that an E. coli strain can't grown in certain condition.
 
-Do any of the 8 mutants have an OD measurement on ampicillin that shows an unclear result? Use logical indexing to retrieve the elements in `mut_amp_OD` that have an OD > 0.1 and < 1. Assign the result of the logical indexing to a variable named "amp_inconclusive_mutants".
+Do any of the eight mutants have an OD measurement on ampicillin that shows an unclear result? Use logical indexing to retrieve the elements in `mut_amp_OD` that have an OD > 0.1 and < 1. Assign the result of the logical indexing to a variable named "amp_inconclusive_mutants".
 
 ```{r}
 # Write and execute your code here

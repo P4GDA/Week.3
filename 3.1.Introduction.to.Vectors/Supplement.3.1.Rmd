@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 
 ---
 
-## 3.1.1: Vector Overview
+## 3.1.1 Vector Overview
 
 ---
 
@@ -25,7 +25,7 @@ Vectors are 1 dimensional. They are like a single row in a table.
 
 ### Vector Creation
 
-For example, a student is doing a project to learn which type of soil is best for growing pea plants. They grow plants in soil A and soil B and after 4 weeks they measure the height of the plants in centimetres. These are the results:
+For example, a student is doing a project to learn which type of soil is best for growing pea plants. They grow plants in soil A and soil B and after four weeks they measure the height of the plants in centimetres. These are the results:
 
 Soil Type A 
 
@@ -35,7 +35,7 @@ Soil Type B
 
 | Height (cm) | 3.6 | 4.2 | 3.8 |
 
-Note that each of the sets of measurements (1 set for soil A and 1 set for soil B) is like a single row in a table.
+Note that each of the sets of measurements (one set for soil A and one set for soil B) is like a single row in a table.
 
 As we have done in previous lectures and tutorials, the student could save each height in one variable:
 
@@ -58,7 +58,7 @@ Arguments: `...` - values to combine (there is no limit to the
                    number of arguments)
 Return Value: a vector containing the arguments
 
-To create a vector containing the heights of the plants grown in soil A, the three heights can be used as arguments to the `c()` function. The output vector is assigned to a variable named "soil_A"
+To create a vector containing the heights of the plants grown in soil A, the three heights can be used as arguments to the `c()` function. The output vector is assigned to a variable named "soil_A":
 
 ```{r}
 soil_A <- c(5.9, 7.2, 6.8)
@@ -111,7 +111,7 @@ vector_1
 
 In the output vector, instead of the third element being `FALSE`, it is the number `0`. When values of different types are mixed in the combine function, R will *coerce* the values to all be of the same type. In this case, the logical value `FALSE` was COERCED to the numerical value `0`. When logical values are coerced to numeric, `TRUE` becomes `1` and `FALSE` becomes `0`. 
 
-If we check the type of this vector with the `typeof()` function, we can see that it is double (numeric) type.
+If we check the type of this vector with the `typeof()` function, we can see that it is double (numeric) type:
 
 ```{r}
 typeof(vector_1)
@@ -173,9 +173,9 @@ Be careful when making vectors that you include data of the same type, as values
 
 Vector elements can be given names to provide extra description about each element. All names given to elements in a vector must be character values and should be unique (no two elements in the same vector should have the same name). If a vector is like a row in a table, vector element names are like column names.
 
-For example, our student from earlier did not only grow the plants in two different soil types, each plant was grown with a different amount of light. Low light plants had 6 light hours per day, medium (med) light plants had 12 light hours per day, and high light plants had 18 light hours per day.
+For example, our student from earlier did not only grow the plants in two different soil types, each plant was grown with a different amount of light. Low light plants had six light hours per day, medium (med) light plants had 12 light hours per day, and high light plants had 18 light hours per day.
 
-We can add the descriptors "low", "med" and "high" to the elements in the 2 data sets. These can be used as column names in the tables of values.
+We can add the descriptors "low", "med" and "high" to the elements in the two data sets. These can be used as column names in the tables of values:
 
 Soil Type A 
 
@@ -191,14 +191,14 @@ We can now name each height value element in our vector with the amount of light
 
 To create a vector in which elements have names, there are two methods. The first is to use the combine function, but precede each element with the name you want to give it:
 
-    vector <- c("name1"=value1, "name2"=value2, ... "nameN"=valueN)
+    vector_name <- c("name1" = value1, "name2" = value2, ... "nameN" = valueN)
 
 Create a vector for the soil A plant heights with names to indicate the amount of light:
 
 ```{r}
-soil_A_light <- c("low"=5.9, 
-                  "med"=7.2,
-                  "high"=6.8)
+soil_A_light <- c("low" = 5.9, 
+                  "med" = 7.2,
+                  "high" = 6.8)
 soil_A_light
 ```
 
@@ -214,8 +214,8 @@ The output is a 3 element character vector containing the names of the elements 
 
 The second method for creating a vector with named elements is to first create a vector without names and then to add the names after using the `names()` function:
 
-    vector <- c(value1, value2, ... valueN)
-    names(vector) <- c("name1", "name2", ... "nameN")
+    vector_name <- c(value1, value2, ... valueN)
+    names(vector_name) <- c("name1", "name2", ... "nameN")
 
 We will use this method to create a named vector for the soil B plant heights:
 
@@ -233,7 +233,7 @@ If we look at the names of the elements in this vector now, we will get a `NULL`
 names(soil_B_light)
 ```
 
-Column names can be added to `soil_B_light` by assigning a vector of character value names.
+Column names can be added to `soil_B_light` by assigning a vector of character value names:
 
 ```{r}
 names(soil_B_light) <- c("low", "med", "high")
@@ -242,7 +242,7 @@ soil_B_light
 
 ---
 
-## 3.1.2: Sequences & Adding Elements
+## 3.1.2 Sequences & Adding Elements
 
 ---
 
@@ -260,13 +260,13 @@ For example, to create a vector with the numbers 1 through 10, a sequence can be
 1:10
 ```
 
-Numeric elements in sequences do not have to be whole numbers, numbers with decimal places can be used as well, however each consecutive number will differ by 1.
+Numeric elements in sequences do not have to be whole numbers. Numbers with decimal places can be used as well, however each consecutive number will differ by 1.
 
 ```{r}
 0.5:5
 ```
 
-Notice that it stops at 4.5, the `end_value` is 5, meaning that the sequence must end before or at the number 5. The next number in the sequence would be 5.5, so it stops at 4.5. 
+Notice that it stops at 4.5. The `end_value` is 5, meaning that the sequence must end before or at the number 5. The next number in the sequence would be 5.5, so it stops at 4.5. 
 
 Negative numbers can included in sequences:
 
@@ -348,16 +348,16 @@ soil_A
 If we add this value to the named vector `soil_A_light`, we must add it along with a name for the new element:
 
 ```{r}
-soil_A_light <- c(soil_A_light, "none"=1.1)
+soil_A_light <- c(soil_A_light, "none" = 1.1)
 soil_A_light
 ```
 
-Let's see what would have happened if we were to have added it without a name.
+Let's see what would have happened if we were to have added it without a name:
 
 ```{r}
-soil_A_light <- c("low"=5.9, 
-                  "med"=7.2,
-                  "high"=6.8)
+soil_A_light <- c("low" = 5.9, 
+                  "med" = 7.2,
+                  "high" = 6.8)
 soil_A_light <- c(soil_A_light, 1.1)
 soil_A_light
 ```
@@ -370,21 +370,21 @@ names(soil_A_light)
 
 Elements can also be added to the start of a vector using the combine function.
 
-Let's start by making a sequence vector called `one_to_ten` but only create a sequence with the values 3 to 8.
+Let's start by making a sequence vector named `one_to_ten`, but only create a sequence with the values 3 to 8:
 
 ```{r}
 one_to_ten <- 3:8
 one_to_ten
 ```
 
-As we have already done, we can add new elements to the end, this time we will add two new values:
+As we have already done, we can add new elements to the end. This time we will add two new values:
 
 ```{r}
 one_to_ten <- c(one_to_ten, 9, 10)
 one_to_ten
 ```
 
-Now we can add two new elements to the start of the vector.
+Now we can add two new elements to the start of the vector:
 
 ```{r}
 one_to_ten <- c(1, 2, one_to_ten)
